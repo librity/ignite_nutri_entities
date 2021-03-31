@@ -1,0 +1,13 @@
+{
+  "skip_files": [
+    "test/support",
+    "lib/nutri_web/channels/user_socket",
+    "lib/nutri/application.ex",
+    "lib/nutri/repo.ex",
+    "lib/nutri_web/endpoint.ex",
+    "lib/nutri_web/gettext.ex",
+    "lib/nutri_web/router.ex",
+    "lib/nutri_web/views/error_helpers.ex",
+    "lib/nutri_web.ex"
+  ]
+}
