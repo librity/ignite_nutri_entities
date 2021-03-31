@@ -9,6 +9,7 @@ defmodule NutriWeb.Router do
     pipe_through :api
 
     resources "/meals", MealsController, only: [:index, :show, :create, :update, :delete]
+    resources "/users", UsersController, only: [:create]
   end
 
   # Enables LiveDashboard only for development

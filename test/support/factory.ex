@@ -1,7 +1,42 @@
 defmodule Nutri.Factory do
   use ExMachina.Ecto, repo: Nutri.Repo
 
-  alias Nutri.Meal
+  alias Nutri.{User, Meal}
+
+  def user_params_factory do
+    %{
+      name: "Jules",
+      email: "bad@mother.fff",
+      cpf: "12345678910"
+    }
+  end
+
+  def user_json_factory do
+    build(:user_params)
+    |> stringify_map()
+  end
+
+  def bad_user_params_factory do
+    %{
+      name: "Jules",
+      email: "badmother.fff",
+      cpf: "1234567891"
+    }
+  end
+
+  def bad_user_json_factory do
+    build(:bad_user_params)
+    |> stringify_map()
+  end
+
+  def user_factory do
+    %User{
+      id: 12,
+      name: "Jules",
+      email: "bad@mother.fff",
+      cpf: "12345678910"
+    }
+  end
 
   def meal_params_factory do
     %{
