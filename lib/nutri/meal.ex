@@ -3,7 +3,9 @@ defmodule Nutri.Meal do
 
   import Ecto.Changeset
 
-  @required_keys [:description, :date, :calories]
+  alias Nutri.User
+
+  @required_keys [:user_id, :description, :date, :calories]
 
   @derive {Jason.Encoder, only: @required_keys ++ [:id]}
 
@@ -11,6 +13,8 @@ defmodule Nutri.Meal do
     field :description, :string
     field :date, :naive_datetime
     field :calories, :integer
+
+    belongs_to :user, User
 
     timestamps()
   end

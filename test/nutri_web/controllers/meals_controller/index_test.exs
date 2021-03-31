@@ -3,9 +3,12 @@ defmodule NutriWeb.MealsController.IndexTest do
 
   import Nutri.Factory
 
+  alias Nutri.User
+
   describe "index/2" do
     test "returns a list of all meal", %{conn: conn} do
-      insert(:meal)
+      %User{id: user_id} = insert(:user)
+      insert(:meal, user_id: user_id)
 
       response =
         conn

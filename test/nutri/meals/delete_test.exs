@@ -3,12 +3,13 @@ defmodule Nutri.Meals.DeleteTest do
 
   import Nutri.Factory
 
+  alias Nutri.{User, Meal}
   alias Nutri.Meals.Delete
-  alias Nutri.Meal
 
   describe "call/1" do
     test "deletes the meal if it exists" do
-      %Meal{id: id} = insert(:meal)
+      %User{id: user_id} = insert(:user)
+      %Meal{id: id} = insert(:meal, user_id: user_id)
 
       return = Delete.call(id)
 

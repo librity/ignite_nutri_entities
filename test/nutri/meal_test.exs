@@ -45,7 +45,8 @@ defmodule Nutri.MealTest do
       expected_errors = %{
         calories: ["must be less than 2000"],
         date: ["is invalid"],
-        description: ["can't be blank"]
+        description: ["can't be blank"],
+        user_id: ["can't be blank"]
       }
 
       assert %Changeset{valid?: false} = return

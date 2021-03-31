@@ -3,11 +3,12 @@ defmodule NutriWeb.MealsController.DeleteTest do
 
   import Nutri.Factory
 
-  alias Nutri.Meal
+  alias Nutri.{User, Meal}
 
   describe "delete/2" do
     test "deletes the meal if it exists", %{conn: conn} do
-      %Meal{id: id} = insert(:meal)
+      %User{id: user_id} = insert(:user)
+      %Meal{id: id} = insert(:meal, user_id: user_id)
 
       response =
         conn

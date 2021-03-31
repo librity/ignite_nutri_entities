@@ -4,11 +4,12 @@ defmodule Nutri.Meals.CreateTest do
   import Nutri.Factory
 
   alias Nutri.Meals.Create
-  alias Nutri.{Error, Meal}
+  alias Nutri.{Error, User, Meal}
 
   describe "call/1" do
     test "return a meal if params are valid" do
-      meal_params = build(:meal_params)
+      %User{id: user_id} = insert(:user)
+      meal_params = build(:meal_params, user_id: user_id)
 
       return = Create.call(meal_params)
 
@@ -31,7 +32,8 @@ defmodule Nutri.Meals.CreateTest do
       expected_errors = %{
         calories: ["must be less than 2000"],
         date: ["is invalid"],
-        description: ["can't be blank"]
+        description: ["can't be blank"],
+        user_id: ["can't be blank"]
       }
 
       assert {:error, %Error{status: :bad_request, result: changeset}} = return

@@ -3,11 +3,12 @@ defmodule NutriWeb.MealsController.ShowTest do
 
   import Nutri.Factory
 
-  alias Nutri.Meal
+  alias Nutri.{User, Meal}
 
   describe "show/2" do
     test "returns the meal if params are valid", %{conn: conn} do
-      %Meal{id: id} = insert(:meal)
+      %User{id: user_id} = insert(:user)
+      %Meal{id: id} = insert(:meal, user_id: user_id)
 
       response =
         conn

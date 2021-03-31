@@ -3,9 +3,12 @@ defmodule NutriWeb.MealsController.CreateTest do
 
   import Nutri.Factory
 
+  alias Nutri.User
+
   describe "create/2" do
     test "returns a created meal if params are valid", %{conn: conn} do
-      meal_params = build(:meal_json)
+      %User{id: user_id} = insert(:user)
+      meal_params = build(:meal_json, %{"user_id" => user_id})
 
       response =
         conn

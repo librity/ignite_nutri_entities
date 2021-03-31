@@ -40,6 +40,7 @@ defmodule Nutri.Factory do
 
   def meal_params_factory do
     %{
+      user_id: 12,
       description: "Royal with cheese",
       date: "1994-05-21 12:00:00",
       calories: 500
@@ -67,6 +68,7 @@ defmodule Nutri.Factory do
   def meal_factory do
     %Meal{
       id: 12,
+      user_id: 12,
       description: "Royal with cheese",
       date: "1994-05-21 12:00:00",
       calories: 500

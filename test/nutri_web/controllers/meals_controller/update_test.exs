@@ -3,11 +3,12 @@ defmodule NutriWeb.MealsController.UpdateTest do
 
   import Nutri.Factory
 
-  alias Nutri.Meal
+  alias Nutri.{User, Meal}
 
   describe "update/2" do
     test "returns the updated meal if params are valid", %{conn: conn} do
-      %Meal{id: id} = insert(:meal)
+      %User{id: user_id} = insert(:user)
+      %Meal{id: id} = insert(:meal, user_id: user_id)
 
       update_params =
         build(:meal_json, %{
@@ -32,7 +33,8 @@ defmodule NutriWeb.MealsController.UpdateTest do
     end
 
     test "returns an error if params aren't valid", %{conn: conn} do
-      %Meal{id: id} = insert(:meal)
+      %User{id: user_id} = insert(:user)
+      %Meal{id: id} = insert(:meal, user_id: user_id)
 
       bad_params = build(:bad_meal_json)
 
