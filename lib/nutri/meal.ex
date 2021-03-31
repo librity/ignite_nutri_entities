@@ -5,7 +5,7 @@ defmodule Nutri.Meal do
 
   @required_keys [:description, :date, :calories]
 
-  @derive {Jason.Encoder, only: [:id, :description, :date, :calories]}
+  @derive {Jason.Encoder, only: @required_keys ++ [:id]}
 
   schema "meals" do
     field :description, :string
