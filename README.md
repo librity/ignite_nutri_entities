@@ -150,6 +150,7 @@ Delete meal:
 
 - https://elixir-lang.org/crash-course.html
 - https://hexdocs.pm/ecto/Ecto.Changeset.html#validate_number/3
+- https://hexdocs.pm/ecto_sql/Ecto.Migration.html#alter/2
 
 ## Resources <a name = "resources"></a>
 
